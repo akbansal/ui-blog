@@ -1,0 +1,10 @@
+<!-- blogContainer start -->
+<div class="row">
+	<div class="col-md-4" >
+		<div class="well" id="sidebar" data-bind="template:{name: 'templates/app_sidebar'}"></div>
+	</div>	
+	<div class="col-md-8">
+		<div data-bind="template: { name: templateToUse, foreach: posts, afterRender: TemplatePostProcessing}"></div>
+	</div>
+</div>
+<!-- blogContainer end -->

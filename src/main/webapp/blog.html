@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+	<title>Blog Application</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/blog.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" type="text/css"/>
+    <!--  /CSS -->
+
+	<!-- RequireJS bootstrap file -->
+	<script data-main="js/main" src="js/lib/require/require.js"></script>
+</head>
+<body>
+    <div class="container" id="body">
+    	<div id="header" data-bind="template:{name: 'templates/app_header'}"></div>
+		<!-- Created a knockout Component so that it can be easily modified with any given UI Template and can be easily injected into any knockout application. -->
+		<blog-container></blog-container>
+	</div>
+</body>
+</html>

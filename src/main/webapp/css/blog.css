@@ -1,0 +1,30 @@
+.mr10{margin-right:10px !important;}
+.mt10{margin-top:10px !important;}
+.icon{width: 50px;height: 50px; float: left; margin: 0 15px 0 0;padding: 13px 0;background: #286090;position: relative;border-radius: 50%;text-align: center;color: #fff;}
+.title{font-size: 20px;margin-top:13px;display: inline-block;font-weight: bold;color: #666;}
+.icon:before {width: 100%;text-align: center;font-size: 24px;}
+.fl{float:left;}
+.col50p{ width:50% !important;}
+.btn {white-space: normal !important;} /* Overriding Bootstrap Btn class so that Button can wrap its content with respect to the button size */
+.close{font-size:30px !important;}
+.navbar-default{height:100px;border-color: #E1E1E1;}
+.ellipsis {text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width:50%;}
+nav ul li {padding: 15px 0;}
+li {line-height: 18px;margin-bottom: 12px;}
+ul.nav-stacked li a {padding : 10px 0 !important; }
+ul.nav-stacked li a .ellipsis {padding-right : 0 !important; padding-left : 0 !important;}
+nav a{font-size: 16px;text-transform: uppercase;}
+.sidebar-list{overflow-y:auto; max-height:300px;}
+span.logo {
+  background: url("http://amitkbansal.com/images/logo.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  display: inline-block;height: 150px;margin: 0 10px;position: relative;top: -15px; width: 150px;zoom: .6;
+}
+@media (min-width: 320px) and  (max-width: 991px) {
+  .affix {position: relative !important;}
+}
+@media (min-width: 992px) and  (max-width: 1199px)  {
+  .affix {width: 293px;position: fixed;top: 25px;}
+}
+@media (min-width: 1200px) {
+  .affix {width:360px;top: 25px;position: fixed;}
+}

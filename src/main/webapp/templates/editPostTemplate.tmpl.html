@@ -1,0 +1,27 @@
+<!--Template for Editing an exisitng post -->
+
+<!-- editPostTemplate.tmpl start -->
+<div class="well">
+	<div class='clearfix' data-bind="attr: {id: id}">
+		<div class="panel panel-primary">
+	    	<div class="panel-heading clearfix">
+	    		<div class="form-group">
+ 					<input class="form-control fl col50p editInputTitle" type="text" data-bind="textInput: title"></input>
+ 				</div>
+			    <span class="pull-right" data-bind="text: displayTimestamp()"></span> 
+	    	</div>
+	    	<div class="panel-body">
+				<div class="form-group">
+					<textarea class="form-control editInputText" rows="3" data-bind="textInput: text"></textarea>
+				</div>
+			</div>
+		</div> 
+	    <div>
+  			<button title="Save" class="btn btn-primary pull-right" data-bind="click: $parent.savePost.bind($data, $parent)">
+				<span class="fa fa-save"></span>&nbsp;Save
+			</button>
+			<button title="Cancel" class="btn btn-link pull-right" data-bind="click: $parent.cancelEditPost.bind($data, $parent)" >Cancel</button>
+  		</div>
+    </div>
+</div>
+<!-- editPostTemplate.tmpl end -->

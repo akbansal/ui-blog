@@ -1,0 +1,29 @@
+<!--Template for Displaying an exisitng post (No Edit Mode) -->
+
+<!-- summaryPostTemplate.tmpl start -->
+<div class="well">
+	<div class='clearfix' data-bind="attr: {id: id}">
+		<div class="panel panel-success">
+	    	<div class="panel-heading">
+ 				<span data-bind="text: title()"></span>
+			    <span class="pull-right" data-bind="text: displayTimestamp()"></span>
+	    	</div>
+	    	<div class="panel-body">
+				<p data-bind="text: text()"></p>
+			</div>
+		</div> 
+	    <div>
+  			<a title="Remove Post" class="btn btn-default pull-right" role="button"
+					data-bind="click: $parent.removePost.bind($data, $parent), clickBubble: false">
+				<span class="fa-remove fa"></span>
+				Remove Post
+			</a>
+			<a title="Edit Post" class="btn btn-primary pull-right mr10" role="button" 
+					data-bind="click: currentTemplate, clickBubble: false">
+				<span class="fa-pencil fa"></span>
+				Edit Post
+			</a>
+  		</div>
+    </div>
+</div>
+<!-- summaryPostTemplate.tmpl end -->

@@ -1,0 +1,63 @@
+<!--Template for Create New post Modal (bootstrap) Dialog -->
+
+<!-- createPostTemplate start -->
+<div id="createPostTemplate" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!--modal header start-->
+			<div class="modal-header">
+				<div class="main-title clearfix">
+					<span class="fa fa-plus icon"></span>
+					<div class="title">New Post</div>
+					<button type="button" class="close" 
+						data-dismiss="modal" aria-label="Close" 
+						aria-hidden="true" data-bind="click: cancel">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+			<!--modal header end-->
+			
+			<!--modal body start-->
+			<div class="modal-body">
+				<form action="#" data-bind="submit: savePost" class="form-horizontal">
+					<div class="form-group">
+				    	<label for="inputTitle" class="col-sm-2 control-label">Title* :</label>
+				        <div class="col-sm-10">
+				        	<input type="text" id="inputTitle" class="form-control" data-bind="value: title"></input>
+				        </div>
+					</div>
+				    <div class="form-group">
+				    	<label for="inputText" class="col-sm-2 control-label">Text* :</label>
+				        <div class="col-sm-10">
+				        	<textarea class="form-control" rows="5" data-bind="value: text" id="inputText"></textarea>
+				        </div>
+				    </div>
+				</form>
+				<label>Fields marked with * are required fields</label>
+
+			</div>
+			<!--modal body end-->
+			
+			<!--Modal footer start-->
+			<div class="modal-footer">
+				<div class="button-con">
+					<div class="float-right">
+						<button type="button" class="btn btn-primary btn-lg" title="Save Post" 
+							data-bind="click: savePost">
+							<span class="fa fa-plus left"></span>
+							Save
+						</button>
+						<button type="button" class="btn btn-default btn-lg" title="Cancel" 
+							data-dismiss="modal" data-bind="click: cancel">
+							<span class="fa fa-times left"></span>
+							Cancel
+						</button>                            
+					</div>
+				</div>
+			</div>
+			<!--Modal footer End-->
+		</div>
+	</div>
+</div>
+<!-- createPostTemplate end -->

@@ -1,0 +1,24 @@
+<!-- app_sidebar.tmpl start -->
+<ul class="nav nav-stacked sidebar-list"  data-bind="foreach: posts" >
+  <li >
+    <a class="clearfix" data-bind="attr: {href: '#'+id, title:title()}">
+      <div class="col-xs-6 col-sm-6 col-md-6 ellipsis"><span data-bind="text: title()"></span></div> 
+        <div class="col-xs-6 col-sm-6 col-md-6"><span class="pull-right" data-bind="text: displayTimestamp()"></span> </div> 
+    </a>
+  </li>
+</ul>
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <a title="Remove All Post" class="btn btn-default btn-block " id="removeAllPost" data-bind="click: removeAllPost, clickBubble: false">
+      <span class="fa-remove fa"></span>
+      Remove All Post
+    </a>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6">
+    <a title="Create New Post" class="btn btn-primary btn-block pull-right mr10" id="createPost" data-bind="click: showModal, clickBubble: false">
+      <span class="fa-pencil fa"></span>
+      New Post
+    </a>
+  </div>
+</div>
+<!-- app_sidebar.tmpl end -->
