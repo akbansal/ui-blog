@@ -1,0 +1,74 @@
+<!--widgetTemplate.html start-->
+<div class="dropup">
+    <div class="headerIconDiv dropdown-toggle" 
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+        data-bind="attr: {id: 'dropdown_' + data().id }">
+        <span class="fa fa-cog headerIcon" data-bind="attr : {'style':'color:' + data().colorcode}"></span>
+    </div>
+    <div class="dropdown-menu widgetToolTip">
+        <div data-bind="click: dashboardViewModel.showRemoveModal, clickBubble: false">
+           <div class="clearfix">
+                <div class="col-md-10 no-padding">
+                    <span title="Remove Widget">Remove</span>
+                </div>
+                <div class="col-md-2 no-padding">
+                   <span class="fa fa-times icon right"></span>
+                </div>
+            </div>
+        </div>
+        <div data-bind="visible: data().enableConfig, click: dashboardViewModel.showConfigWidgetModal, clickBubble: false">
+            <div class="clearfix">
+                <div class="col-md-10 no-padding">
+                    <span title="Configure Widget">Configure</span>
+                </div>
+                <div class="col-md-2 no-padding">
+                    <span class="fa fa-cog icon"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div id="addDashboardContainer" class="dropdown float-left">
+    <button id="addDashboardBtn" type="button" title="Add Dashboard" 
+        class="btn btn-default dropdown-toggle btn-add" 
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+        data-bind="clickBubble: false, enable:  dashboardCounter() < maxDashboardSize">
+        <span class="fa-plus fa"></span>
+    </button>
+    <div aria-labelledby="addDashboardBtn" role="menu" class="dropdown-menu addDashboardTooltip">
+        <form action="#/dashboard" data-bind="submit: addDashboard, clickBubble: false">
+            <div class="">
+                <div class="col-md-8 no-padding">
+                    <input class="form-control" data-bind='value: createTitle, valueUpdate: "afterkeydown"'/>
+                </div>
+                <div class="col-md-4 no-padding">
+                    <button type="submit" class="btn btn-primary" title="Create Dashboard" data-bind="enable: createTitle().length > 0">
+                            <span class="fa-check fa left"></span>
+                            <span>Create</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<div class="grid-stack-item-content" data-bind="attr : {'style':'border-color:' + data().colorcode}">    
+    <div class="sDashboardWidgetHeader clearfix" data-bind="attr : {'style':'background-color:' + data().colorcode}">   
+        <div class="widgetHeaderIcon" data-bind="visible: data().width > 1"> 
+            <span class="fa" data-bind="css: data().icon"></span>
+        </div>
+        <div class="widgetHeaderTitle" data-bind="style: { 'padding-left': data().width < 2 ? '0':'' }">
+            <div class="widgetTitle" data-bind="text: data().name"></div>
+            <div class="widgetSubTitle" data-bind="text: data().description"></div>
+        </div>
+    </div>
+    <div class="sDashboardWidgetContent" data-bind="template: { 
+        name: data().widgetTemplate, 
+        if: widgetViewModelLoded, 
+        data: data().widgetViewModel, 
+        afterRender: afterWidgetTemplateRendered 
+        }, attr:{id: 'widgetContent-' + data().id}">
+    </div>    
+</div>
+<!--widgetTemplate.html start-->

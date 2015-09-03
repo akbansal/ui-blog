@@ -1,0 +1,18 @@
+<!--addDashboardTooltip.tmpl.html start-->
+<div class="tooltipster-drop-down addDashboardTooltip">
+    <form action="#/dashboard" data-bind="submit: dashboardViewModel.addDashboard, clickBubble: false">
+		<div class="clearfix">
+			<div class="col-md-8 no-padding">
+		    	<input class="form-control" data-bind='value: title, valueUpdate: "afterkeydown"'/>
+		    </div>
+		    <div class="col-md-4 no-padding">
+		        <button type="submit" class="btn btn-primary" title="Create Dashboard" 
+					data-bind="enable: title().length > 0">
+						<span class="fa-check fa left"></span>
+						<span>Create</span>
+				</button>
+			</div>
+		</div>
+    </form>
+</div>
+<!--addDashboardTooltip.tmpl.html end-->

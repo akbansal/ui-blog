@@ -1,0 +1,110 @@
+<!--dashboardTemplate.html start-->
+<div id="Dashboard">	
+	<div class="clearfix">
+		<!--Dashboard Tabs start-->
+		<div class="dashboard-controls col-xs-10 col-sm-10 col-lg-10 col-md-10 no-padding">
+			<!--Dashboard pages start-->
+			<div class="float-left">
+				<span class="tabRow" data-bind="foreach: dashboards">
+					<div class="btn" data-bind="
+								click: $parent.selectDashboard.bind($data, $parent), 
+	                            clickBubble: false,
+	                            css: selected() ? 'btn-primary' : 'btn-default', 
+	                            attr: {id: 'dashboardTab_'+id, href: '#'+url}">
+	   					<div class="btnContent"><span data-bind="text: name"></span></div>
+						<div class="dropdown btnIcon">
+							<a href="#" data-bind="attr: {id: 'dropdown_'+id }" class="tabIcon dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<span class="fa fa-cog"></span>
+							</a>
+							<div class="dropdown-menu dashboardtootip" data-bind="template: { 
+								name: '<%= assets_base %>/js/lib/dashboard/dashboardTabTooltip',
+								data: {
+                                    'data': $data,
+                                    'title': $data.name(),
+                                    'dashboardViewModel': $parent,
+                                    'index': $index
+                                }
+                            }">
+							</div>
+						</div>
+					</div>
+				</span>
+			</div>
+			<!--Dashboard pages end-->
+			<!--add new dashboard start-->
+			<div id="addDashboardContainer" class="dropdown float-left">
+				<button id="addDashboardBtn" type="button" title="Add Dashboard" 
+					class="btn btn-default dropdown-toggle btn-add" 
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+					data-bind="clickBubble: false, enable:  dashboardCounter() < maxDashboardSize">
+					<span class="fa-plus fa"></span>
+				</button>
+				<div aria-labelledby="addDashboardBtn" role="menu" class="dropdown-menu addDashboardTooltip">
+				    <form action="#/dashboard" data-bind="submit: addDashboard, clickBubble: false">
+						<div class="">
+							<div class="col-md-8 no-padding">
+						    	<input class="form-control" data-bind='value: createTitle, valueUpdate: "afterkeydown"'/>
+						    </div>
+						    <div class="col-md-4 no-padding">
+						        <button type="submit" class="btn btn-primary" title="Create Dashboard" data-bind="enable: createTitle().length > 0">
+										<span class="fa-check fa left"></span>
+										<span>Create</span>
+								</button>
+							</div>
+						</div>
+				    </form>
+				</div>
+			</div>
+			<!--add new dashboard end-->
+		</div>
+		<!--Dashboard Tabs end-->
+		
+		<!--add widget button start-->
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 no-padding">
+			<div class="btn-group float-right" data-bind="if: widgetsLoaded()">
+				<button type="button" title="Add New Widget" class="btn btn-primary dropdown-toggle addWidgetBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bind="clickBubble: false, css: dashboardCounter() > 0 ? 'enabled': 'disabled'"><span class="fa-plus fa left"></span>Add Widget</button>
+
+				<div id="addWidgetTooltip" role="menu" class="dropdown-menu clearfix">
+				 	<table id="addWidget-table" class="table dataTable table-condensed" 
+						   data-bind='dataTable :{data: addWidgetDataTable.data, options:addWidgetDataTable.options}'>  
+						<colgroup>
+							<col data='checkbox' 
+								 targets=0
+								 template='<button type="button" title="Add Widget" class="btn btn-default" col-data-bind="click: $data.addSelectedWidget">Select</button>' 
+								 orderable=false 
+								 width="10%" />
+								 
+							<col data='widgetObj.name' 
+								 targets=1
+								 template='<div class="widgetName"
+									col-data-bind="text: widgetObj.name()"></div>
+									<div class="widgetDesc"
+									col-data-bind="text: widgetObj.description"></div>' 
+								 orderable=false
+								 class="main-name" 
+								 width="80%" />
+						</colgroup>
+					</table>
+					
+				</div>
+			</div>
+		</div>
+		<!--add widget button end-->
+	</div>
+		
+	<!--content start-->
+	<div class="col-md-12 tab-content dashboard-tab no-padding" data-bind="foreach: {data: dashboards, afterRender: myPostProcessingLogic.bind($data)}">
+		<div class="tabpane fade" data-bind="css: selected() ? 'in active' : 'collapse', attr: {id: url}">
+			<!--page content start-->
+			<div data-bind="if: widgetsInitialized()">
+				<div class="dashboard-container grid-stack grid-stack-6" data-bind="foreach: {data: $data.widgets , afterRender: $parent.afterAddWidget.bind($data)}, attr: {id: 'ss-container-dashboard-'+id}">
+						<div class="grid-stack-item" data-gs-no-resize="true" data-bind="component:{name:'acs-widget', params:{data: $data, parent: $parentContext.$component, index: $index}}, attr: {'data-gs-x': $data.x, 'data-gs-y': $data.y, 'data-gs-width': $data.width, 'data-gs-height': $data.height, id: 'WIDGET-'+ $data.id}">
+						</div>
+				</div>
+			</div>
+			<!--page content end-->
+		</div>
+	</div>
+	<!--content end-->
+</div>	
+<!--dashboardTemplate.html end-->

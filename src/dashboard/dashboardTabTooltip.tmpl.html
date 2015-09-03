@@ -1,0 +1,22 @@
+<!-- dashboardTabTooltip.tmpl.html start-->
+<form action="#/dashboard" data-bind="submit: dashboardViewModel.renameTitle, preventBubble: 'click'">
+	<div class="">
+		<div class="col-md-6 no-padding">
+	    	<input class="form-control" data-bind="preventBubble: 'click', value: title, valueUpdate: 'afterkeydown'"/>
+	    </div>
+	    <div class="col-md-3 no-padding">
+	        <button type="submit" class="btn btn-primary" title="Rename" 
+				data-bind="enable: title.length > 0, preventBubble: 'click'">
+						<span class="fa-check fa left"></span>
+						<span>Rename</span>
+			</button>
+		</div>
+		<div class="col-md-3 no-padding">
+	        <button type="button" class="btn btn-default" title="Delete Dashboard" data-bind="click: dashboardViewModel.showRemoveModal, clickBubble: false">
+					<span class="fa-check fa left"></span>
+					<span>Delete</span>
+			</button>
+		</div>
+	</div>
+</form>
+ <!--dashboardTabTooltip.tmpl.html end

@@ -1,0 +1,27 @@
+<!--widgetPopover.tmpl.html start-->
+ 
+<div class="tooltipster-drop-down widgetToolTip" >
+    <div data-bind="click: dashboardViewModel.showRemoveModal, clickBubble: false">
+       <div class="clearfix">
+            <div class="col-md-10 no-padding">
+                <span title="Remove Widget">Remove</span>
+            </div>
+            <div class="col-md-2 no-padding">
+               <span class="fa fa-times icon right"></span>
+            </div>
+        </div>
+    </div>
+            
+    <div data-bind="if: data.enableConfig, click: dashboardViewModel.showConfigWidgetModal, clickBubble: false">
+        <div class="clearfix">
+            <div class="col-md-10 no-padding">
+                <span title="Configure Widget">Configure</span>
+            </div>
+            <div class="col-md-2 no-padding">
+                <span class="fa fa-cog icon"></span>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!--widgetPopover.tmpl.html end-->
